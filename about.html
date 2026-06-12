@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Yashwanth Reddy</title>
+
+    <!-- Global + page CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+
+    <!-- EXTRA TIMELINE STYLES (override old simple one) -->
+    <style>
+      /* --- Neon Golden Timeline --- */
+      .timeline-section {
+        padding: 80px 80px 110px;
+        background:#070606;
+        color:#f5f5f5;
+      }
+      .timeline-label {
+        font-size: 14px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.6);
+        margin-bottom: 6px;
+      }
+      .timeline-title {
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+      }
+
+      .timeline-wrapper {
+        position: relative;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding-left: 80px;
+      }
+
+      /* vertical line */
+      .timeline-line {
+        position: absolute;
+        left: 32px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: rgba(255, 210, 60, 0.08);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .timeline-line-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 0;
+        background: linear-gradient(180deg,#fff1b0,#ffd54a,#ffac1c);
+        box-shadow: 0 0 18px rgba(255,210,80,0.9);
+        border-radius: inherit;
+        transition: height 1.5s ease-out;
+      }
+
+      .timeline-items {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .timeline-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 26px;
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      /* solid neon dot */
+      .timeline-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #2b230c;
+        box-shadow: 0 0 0 rgba(255,210,80,0);
+        position: relative;
+        flex-shrink: 0;
+      }
+      .timeline-dot::after {
+        content: "";
+        position: absolute;
+        inset: -10px;
+        border-radius: inherit;
+        background: radial-gradient(circle,rgba(255,215,120,0.9) 0,rgba(255,215,120,0) 60%);
+        opacity: 0;
+        transition: opacity 0.55s ease;
+        pointer-events: none;
+      }
+
+      .timeline-content {
+        max-width: 800px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .timeline-year {
+        font-size: 14px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.6);
+        margin-bottom: 4px;
+      }
+
+      .timeline-text {
+        font-size: 15px;
+        line-height: 1.8;
+        color: rgba(255,255,255,0.8);
+      }
+
+      /* when active (after scroll) */
+      .timeline-item.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .timeline-item.active .timeline-dot {
+        background: #ffd54a;
+        box-shadow:
+          0 0 10px rgba(255,220,130,0.95),
+          0 0 24px rgba(255,190,80,0.85),
+          0 0 40px rgba(255,170,40,0.75);
+      }
+      .timeline-item.active .timeline-dot::after {
+        opacity: 1;
+      }
+      .timeline-item.active .timeline-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* small screens */
+      @media (max-width: 900px) {
+        .timeline-section {
+          padding: 60px 24px 80px;
+        }
+        .timeline-wrapper {
+          padding-left: 60px;
+        }
+        .timeline-line {
+          left: 22px;
+        }
+      }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="site-header">
+    <div class="header-inner">
+        <div class="logo">YASHWANTH REDDY</div>
+        <nav class="main-nav">
+            <a class="nav-item" href="index.html">Home</a>
+            <a class="nav-item active" href="about.html">About Me</a>
+            <button class="contact-btn" onclick="location.href='index.html#introduction'">Contact Me</button>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="about-hero">
+    <div class="about-left">
+        <h3 class="about-title-label">ABOUT</h3>
+        <h2 class="about-title">YASHWANTH REDDY</h2>        
+    </div>
+    <img src="new about.png" alt="Portrait" class="about-hero-img">
+    <div class="about-scroll">SCROLL DOWN TO<br>SEE MY JOURNEY</div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+    <div class="stats-box stat-box-animated">
+        <div class="stat-number" data-target="3">03+</div>
+        <div class="stat-label">Years in Business</div>
+    </div>
+    <div class="stats-box stat-box-animated">
+        <div class="stat-number" data-target="45">45+</div>
+        <div class="stat-label">Happy Clients</div>
+    </div>
+    <div class="stats-box stat-box-animated">
+        <div class="stat-number" data-target="4">04+</div>
+        <div class="stat-label">Photography Awards</div>
+    </div>
+    <div class="stats-box stat-box-animated">
+        <div class="stat-number" data-target="5">05+</div>
+        <div class="stat-label">International Shoots</div>
+    </div>
+    <div class="stats-box stat-box-animated">
+        <div class="stat-number" data-target="500">500+</div>
+        <div class="stat-label">Social Media Followers</div>
+    </div>
+    <div class="stats-box stat-box-animated">
+        <div class="stat-number" data-target="85">85%</div>
+        <div class="stat-label">Client Retention Rate</div>
+    </div>
+</div>
+
+<!-- BIO -->
+<section class="bio-section">
+    <h2 class="bio-title">MY BIOGRAPHY</h2>
+    <p class="bio-text">
+        Yashwanth is a passionate graphic designer with over 3 years of experience in visual storytelling.
+        His journey began with a deep fascination for colors, shapes, and creativity.
+        He specializes in brand identity, digital graphics, and print media.
+        With a strong base in digital media and design principles, he brings ideas to life with clarity and precision.
+        Yashwanth’s design philosophy blends aesthetic beauty with strategic purpose.
+        Every project he creates reflects emotion, balance, and meaning.
+        He focuses on delivering designs that communicate, connect, and inspire.
+        Driven by curiosity, he constantly explores new design trends and techniques.
+        For him, design isn’t just about visuals — it’s about creating experiences.
+        Through every detail, Yashwanth strives to make a lasting visual impact.
+    </p>
+    <div class="bio-divider"></div>
+</section>
+
+<!-- ⭐ FIXED — GOLDEN NEON TIMELINE -->
+<section class="timeline-section">
+  <h3 class="timeline-label">JOURNEY</h3>
+  <h2 class="timeline-title">YASHWANTH'S JOURNEY – A TIMELINE</h2>
+
+  <div class="timeline-wrapper">
+    <div class="timeline-line"><div class="timeline-line-fill"></div></div>
+
+    <div class="timeline-items">
+
+      <div class="timeline-item">
+        <div class="left-info">
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">YEAR — 2021</span>
+        </div>
+        <div class="timeline-box">
+          In 2021, Yashwanth discovered his passion for graphic design, marking the beginning of his creative journey.
+          He started experimenting with visual compositions, color palettes, and digital art, exploring how design
+          could tell stories without words. Each project became a step toward mastering the art of visual storytelling.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="left-info">
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">YEAR — 2022</span>
+        </div>
+        <div class="timeline-box">
+          Yashwanth pursued a degree in Fine Arts with a focus on graphic design at Pixxel Arts, refining his technical
+          skills and artistic sensibilities. His education strengthened his understanding of design principles and
+          deepened his passion for creating visuals with purpose.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="left-info">
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">YEAR — 2023</span>
+        </div>
+        <div class="timeline-box">
+          Yashwanth officially launched his graphic design studio, offering branding, digital design, and visual identity
+          services. Since then, he has worked with a variety of clients, creating designs that combine creativity,
+          strategy, and storytelling.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="left-info">
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">YEAR — 2023</span>
+        </div>
+        <div class="timeline-box">
+          Yashwanth earned several prestigious design recognitions that strengthened his reputation as a visionary
+          designer. His attention to detail continues to set new standards in visual storytelling.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="test-head center">
+      <p class="small-label">TESTIMONIALS</p>
+      <h2 class="main-title">WHAT MY CLIENTS SAY</h2>
+      <div class="reviews-count">
+        <p>Total Reviews</p>
+        <span id="total-reviews">003</span>
+      </div>      
+    </div>
+
+    <!-- COMMENT BOX -->
+    <section class="comment-section">
+      <h2 class="comment-title">LEAVE YOUR OPINION</h2>
+      <p class="comment-subtext">Share your thoughts with me</p>
+
+      <form id="commentForm" class="comment-form">
+        <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+        <button type="submit" class="comment-submit">Submit</button>
+        <p id="successMessage" class="success-message"></p>
+      </form>
+    </section>
+
+    <div class="test-cards">
+      <article class="test-card">
+        <h4>Emily Johnson</h4>
+        <div class="stars">★★★★★</div>
+        <p>Photography doesn’t just capture moments; it captures emotions. His work is simply mesmerizing.</p>
+      </article>
+      <article class="test-card">
+        <h4>John Smith</h4>
+        <div class="stars">★★★★★</div>
+        <p>An incredible talent for making every event feel effortless, and the results speak for themselves.</p>
+      </article>
+      <article class="test-card">
+        <h4>Samantha Davis</h4>
+        <div class="stars">★★★★★</div>
+        <p>I was blown away by how he captured the essence of our wedding day. His photographs are our cherished memories.</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- services ticker -->
+  <div class="services-ticker">
+    <div class="ticker-track">
+      <span>★ EVENT PHOTOGRAPHY</span>
+      <span>★ COMERCIAL PHOTOGRAPHY</span>
+      <span>★ WEDDING PHOTOGRAPHY</span>
+      <span>★ LANDSCAPE PHOTOGRAPHY</span>
+      <span>★ BRANDING PHOTOGRAPHY</span>
+      <span>★ PORTRAIT PHOTOGRAPHY</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-left">
+      <p class="eyebrow">A MORE MEANINGFUL HOME FOR PHOTOGRAPHY</p>
+      <h3 class="footer-cta">LET'S<br>WORK TOGETHER</h3>
+    </div>
+
+    <div class="footer-navs">
+      <div class="col">
+        <h5>HOME</h5>
+        <ul>
+          <li><a href="about.html">ABOUT ME</a></li>
+          <li><a href="#">MY WORKS</a></li>
+          <li><a href="#">TESTIMONIALS</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>PORTFOLIO</h5>
+        <ul>
+          <li><a href="#">EVENTS</a></li>
+          <li><a href="#">PORTRAIT</a></li>
+          <li><a href="#">BRANDING</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>SERVICES</h5>
+        <ul>
+          <li><a href="#">PORTRAITS</a></li>
+          <li><a href="#">EVENTS</a></li>
+          <li><a href="#">COMMERCIAL</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="legal">
+      <a href="#">Terms & Conditions</a> · <a href="#">Privacy Policy</a>
+    </div>
+    <div class="social">
+      <a href="#" class="soc">IG</a>
+      <a href="#" class="soc">TW</a>
+      <a href="#" class="soc">LI</a>
+    </div>
+    <div class="copyright">© 2025 Yashwanth Reddy. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- STATS COUNTER JS (unchanged from your version) -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const boxes = document.querySelectorAll(".stat-box-animated");
+    const counters = document.querySelectorAll(".stat-number");
+    let started = false;
+
+    function animateCounter(counter, delay) {
+        let target = +counter.getAttribute("data-target");
+        let duration = 1800;
+        let startTime = null;
+
+        function easeOutQuad(t) {
+            return t * (2 - t);
+        }
+
+        function update(timestamp) {
+            if (!startTime) startTime = timestamp;
+            let progress = Math.min((timestamp - startTime) / duration, 1);
+            let eased = easeOutQuad(progress);
+            let value = Math.floor(eased * target);
+            counter.innerText = value + "+";
+            if (progress < 1) requestAnimationFrame(update);
+            else counter.innerText = target + "+";
+        }
+        setTimeout(() => requestAnimationFrame(update), delay);
+    }
+
+    function startAnimation() {
+        boxes.forEach((box, index) => {
+            setTimeout(() => box.classList.add("visible"), index * 150);
+        });
+        counters.forEach((counter, index) => {
+            animateCounter(counter, index * 150);
+        });
+    }
+
+    function checkScroll() {
+        const row = document.querySelector(".stats-row");
+        const position = row.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+        if (!started && position < screenHeight - 150) {
+            started = true;
+            startAnimation();
+        }
+    }
+    window.addEventListener("scroll", checkScroll);
+});
+</script>
+
+<!-- TIMELINE ANIMATION JS (golden path fill + dots + text) -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const wrapper = document.querySelector(".timeline-wrapper");
+  if (!wrapper) return;
+
+  const lineFill = wrapper.querySelector(".timeline-line-fill");
+  const items = Array.from(wrapper.querySelectorAll(".timeline-item"));
+  let triggered = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !triggered) {
+        triggered = true;
+
+        // fill line
+        lineFill.style.height = "100%";
+
+        // activate dots + text one by one
+        items.forEach((item, index) => {
+          setTimeout(() => item.classList.add("active"), 200 + index * 250);
+        });
+
+        observer.unobserve(wrapper);
+      }
+    });
+  }, { threshold: 0.35 });
+
+  observer.observe(wrapper);
+});
+</script>
+
+<!-- TESTIMONIALS + COMMENT JS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // ticker duplicate
+    const track = document.querySelector('.ticker-track');
+    if (track) track.innerHTML += track.innerHTML;
+
+    // set starting total reviews from cards
+    const totalEl = document.getElementById('total-reviews');
+    const totalCards = document.querySelectorAll('.test-card').length;
+    if (totalEl) totalEl.innerText = String(totalCards).padStart(3,'0');
+
+    // comment + counter
+    const input = document.getElementById("commentInput");
+    const success = document.getElementById("successMessage");
+    const form = document.getElementById("commentForm");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const text = input.value.trim();
+
+        if (text === "") {
+            input.style.boxShadow = "0 0 10px rgba(255, 60, 60, 0.9)";
+            setTimeout(() => input.style.boxShadow = "none", 800);
+            return;
+        }
+
+        let current = parseInt(totalEl.innerText);
+        totalEl.innerText = String(current + 1).padStart(3, "0");
+
+        input.value = "";
+        success.textContent = "THANK YOU FOR YOUR OPINION!";
+        success.style.display = "block";
+        setTimeout(() => success.style.display = "none", 2500);
+    });
+});
+</script>
+<script>
+  // 🟡 Mouse ripple glow already handled by CSS (hover logic)
+  // 🔥 Parallax Tilt for timeline boxes
+  document.querySelectorAll(".timeline-box").forEach(box => {
+    box.addEventListener("mousemove", e => {
+      const rect = box.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+  
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+  
+      const tiltX = ((x - centerX) / 22).toFixed(2);
+      const tiltY = ((centerY - y) / 22).toFixed(2);
+  
+      box.style.setProperty("--tilt-x", tiltX + "deg");
+      box.style.setProperty("--tilt-y", tiltY + "deg");
+      box.classList.add("tilt");
+    });
+  
+    box.addEventListener("mouseleave", () => {
+      box.classList.remove("tilt");
+      box.style.setProperty("--tilt-x", "0deg");
+      box.style.setProperty("--tilt-y", "0deg");
+    });
+  });
+  </script>
+ 
+ <script>
+  const timelineSection = document.querySelector(".timeline-section");
+  const lineFill = document.querySelector(".timeline-line-fill");
+  const items = document.querySelectorAll(".timeline-item");
+  
+  function updateTimeline() {
+    const rect = timelineSection.getBoundingClientRect();
+    const screen = window.innerHeight;
+  
+    if (rect.bottom < 0 || rect.top > screen) return;
+    const percentage = (screen - rect.top) / (rect.height + screen * 0.2);
+    lineFill.style.height = Math.min(Math.max(percentage * 100, 0), 100) + "%";
+  
+    items.forEach((item) => {
+      const box = item.getBoundingClientRect();
+      if (box.top < screen - 200) item.classList.add("active");
+    });
+  }
+  
+  window.addEventListener("scroll", updateTimeline);
+  window.addEventListener("resize", updateTimeline);
+  updateTimeline();
+  </script>
+                 
+</body>
+</html>
