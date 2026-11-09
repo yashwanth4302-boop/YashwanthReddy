@@ -4,9 +4,21 @@ function openModal(name){const p=projects[name];title.textContent=name==='techno
 function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';content.innerHTML='';}
 document.querySelectorAll('[data-project]').forEach(b=>b.addEventListener('click',()=>openModal(b.dataset.project)));document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeModal));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.work-card').forEach(card=>card.hidden=b.dataset.filter!=='all'&&card.dataset.category!==b.dataset.filter)}));
-document.querySelector('.demo-switch').addEventListener('click',e=>{const b=e.currentTarget;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')});document.querySelector('.demo-animated').addEventListener('click',e=>{e.currentTarget.innerHTML='Nice interaction <b>✓</b>';});document.querySelector('.login-demo').addEventListener('submit',e=>{e.preventDefault();e.currentTarget.querySelector('.login-feedback').textContent='Demo sign-in complete — no data sent.'});
-const menu=document.querySelector('.works-menu');menu.addEventListener('click',()=>{const nav=document.querySelector('.works-header nav');const shown=nav.style.display==='flex';nav.style.display=shown?'none':'flex';nav.style.position=shown?'':'absolute';nav.style.top=shown?'':'70px';nav.style.right=shown?'':'18px';nav.style.background=shown?'':'#111';nav.style.padding=shown?'':'20px';nav.style.flexDirection=shown?'':'column';nav.style.zIndex=shown?'':'10';menu.setAttribute('aria-expanded',String(!shown));});
-
+const demoSwitch = document.querySelector('.demo-switch');
+if (demoSwitch) demoSwitch.addEventListener('click', e => {
+  const button = e.currentTarget;
+  button.setAttribute('aria-pressed', button.getAttribute('aria-pressed') !== 'true');
+});
+const demoAnimated = document.querySelector('.demo-animated');
+if (demoAnimated) demoAnimated.addEventListener('click', e => {
+  e.currentTarget.innerHTML = 'Nice interaction <b>✓</b>';
+});
+const loginDemo = document.querySelector('.login-demo');
+if (loginDemo) loginDemo.addEventListener('submit', e => {
+  e.preventDefault();
+  const feedback = e.currentTarget.querySelector('.login-feedback');
+  if (feedback) feedback.textContent = 'Demo sign-in complete — no data sent.';
+});
 // Component preview interactions
 document.querySelectorAll('.demo-toggle').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')));
 document.querySelectorAll('.search-demo').forEach(f=>f.addEventListener('reset',()=>setTimeout(()=>f.querySelector('input').focus(),0)));
