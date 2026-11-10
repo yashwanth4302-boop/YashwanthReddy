@@ -1930,3 +1930,92 @@ img, video, iframe { max-width: 100%; }
   #testimonials .testimonials-grid .card { flex:0 0 min(82vw, 330px) !important; width:min(82vw,330px) !important; min-width:0 !important; box-sizing:border-box !important; margin:0 !important; transform:none !important; position:relative !important; z-index:1 !important; scroll-snap-align:center !important; border-radius:18px !important; }
   #testimonials .testimonials-grid .card:hover, #testimonials .testimonials-grid .card:active, #testimonials .testimonials-grid .card:focus { transform:none !important; margin:0 !important; z-index:1 !important; box-shadow:0 8px 22px rgba(0,0,0,.28) !important; }
 }
+
+
+/* Home page mobile hero refinement — desktop layout remains unchanged */
+@media (max-width: 700px) {
+  body.dark #hero.site-header {
+    padding-bottom: 22px !important;
+    overflow: hidden !important;
+  }
+
+  body.dark #hero .header-inner {
+    width: 100% !important;
+    min-height: 82px !important;
+    padding: 18px 22px !important;
+    box-sizing: border-box !important;
+    gap: 12px !important;
+  }
+
+  body.dark #hero .menu-toggle {
+    flex: 0 0 48px !important;
+    width: 48px !important;
+    min-width: 48px !important;
+    height: 48px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.dark #hero .hero-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 24px !important;
+    width: 100% !important;
+    padding: 48px 22px 34px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.dark #hero .hero-left,
+  body.dark #hero .hero-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  body.dark #hero .hero-pre {
+    font-size: clamp(10px, 3vw, 13px) !important;
+    letter-spacing: 1.8px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 14px !important;
+  }
+
+  body.dark #hero .hero-name {
+    font-size: clamp(43px, 11.8vw, 66px) !important;
+    line-height: .98 !important;
+    letter-spacing: -1.8px !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  body.dark #hero .cta-large {
+    max-width: 100% !important;
+    font-size: clamp(27px, 7.4vw, 39px) !important;
+    line-height: .98 !important;
+    letter-spacing: -1.1px !important;
+    text-align: left !important;
+  }
+
+  /* Remove the decorative portrait/image card from the mobile home flow. */
+  body.dark .skills-and-image .right-image-wrap {
+    display: none !important;
+  }
+
+  /* Keep the skills grid within the phone viewport. */
+  body.dark .skills-and-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    box-sizing: border-box !important;
+  }
+  body.dark .skills-grid {
+    width: 100% !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 20px 10px !important;
+  }
+  body.dark .skills-grid .skill p {
+    overflow-wrap: anywhere !important;
+    text-align: center !important;
+  }
+}
